@@ -5,8 +5,8 @@ const addEmployeesBtn = document.querySelector('#add-employees-btn');
 
 // Collect employee data
 const collectEmployees = function() {
-
- 
+ /*
+  
   let result = new Map();
   result.set("lastName", "")
   result.set("firstName", "")
@@ -28,8 +28,26 @@ const collectEmployees = function() {
   //}
 
   return result;
+  */
+  let item = new Map();
+  let array = [];
   
-  
+  item.set("lastName", "Roper");
+  item.set("firstName", "Kevin");
+  item.set("salary", 100000);
+  array.push(item);
+
+  item.lastName = "Smith";
+  item.firstName = "Jane";
+  item.salary = 80000;
+  array.push(item);
+
+  item.lastName = "Relic";
+  item.firstName = "The";
+  item.salary = 75000;
+  array.push(item);
+
+  return array;
 }
 
 // Display the average salary
