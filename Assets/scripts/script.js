@@ -5,8 +5,8 @@ const addEmployeesBtn = document.querySelector('#add-employees-btn');
 
 // Collect employee data
 const collectEmployees = function() {
+
  
-  let flag = false;
   let result = new Map();
   result.set("lastName", "")
   result.set("firstName", "")
@@ -28,15 +28,18 @@ const collectEmployees = function() {
   //}
 
   return result;
+  
+  
 }
 
 // Display the average salary
 const displayAverageSalary = function(employeesArray) {
   // TODO: Calculate and display the average salary
   let total = 0;
-  employeesArray.array.forEach(element => {
-    total += element.salary;
-  });
+
+  for(let i = 0; i <employeesArray.length; i++){
+    total += employeesArray[i].salary;
+  }
 
   return total / employeesArray.length;
 
@@ -46,6 +49,8 @@ const displayAverageSalary = function(employeesArray) {
 // Select a random employee
 const getRandomEmployee = function(employeesArray) {
   // TODO: Select and display a random employee
+  const rnd = Math.floor(Math.random() * employeesArray.length -1);
+  return employeesArray[rnd];
 }
 
 /*
