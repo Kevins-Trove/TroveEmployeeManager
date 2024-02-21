@@ -1,4 +1,4 @@
-// let employeesArray = [];
+let employeesArray = [];
 
 // Get a reference to the #add-employees-btn element
 const addEmployeesBtn = document.querySelector('#add-employees-btn');
@@ -7,61 +7,48 @@ const addEmployeesBtn = document.querySelector('#add-employees-btn');
 const collectEmployees = function() {
  
   
-  let result = new Map();
-  result.set("lastName", "")
-  result.set("firstName", "")
-  result.set("salary", 0)
-  let lastName = "", firstName = "", salary = 0;
+  
+  const employee ={
+    lastName: "",
+    firstName: "",
+    salary: 0
+  }
+  const flag = false;
 
-  // Get user last name and prompt for 
- while (result.lastName.length() == 0){
-    result.lastName = prompt("Last name", "");
+
+
     
-  }
+    // Get user last name and prompt for 
+  while (employee.lastName.length == 0){
+    employee.lastName = prompt("Last name", "");
+    }
+    
+    while (employee.firstName.length == 0){
+      employee.firstName = prompt("First name", "");
+    }
+
+    while (employee.salary <= 0){
+      employee.salary = prompt("Employee salary", "");
+    }
+
+    employeesArray.push (employee);
+
+  return employeesArray;
   
-  while (firstName.length() == 0){
-    result.firstName = prompt("First name", "");
-  }
-
-  while (salary <= 0){
-    result.salary = prompt("Employee salary", "");
-  }
-
-  return result;
- 
-  let item = new Map();
-  let item2 = new Map();
-  let item3 = new Map();
-  let array = [];
-  
-  item.set("lastName", "Roper");
-  item.set("firstName", "Kevin");
-  item.set("salary", 100000);
-  array.push(item);
-
-  item2.lastName = "Smith";
-  item2.firstName = "Jane";
-  item2.salary = 80000;
-  array.push(item2);
-
-  item3.lastName = "Relic";
-  item3.firstName = "The";
-  item3.salary = 75000;
-  array.push(item3);
-console.log(array);
-  return array;
 }
 
 // Display the average salary
 const displayAverageSalary = function(employeesArray) {
   // TODO: Calculate and display the average salary
   let total = 0;
+  let average = 0;
 
   for(let i = 0; i <employeesArray.length; i++){
     total += employeesArray[i].salary;
   }
 
-  alert("Averge salary")
+  average =total / employeesArray.length;
+  alert("Averge salary is $" + average.toFixed(2))
   return total / employeesArray.length;
 
 
