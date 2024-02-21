@@ -12,7 +12,7 @@ The is a project to demonstrate the Trove interface for Employee Payroll Managem
 
 
 ## Our work
-[Visit our site](https://kevins-trove.github./)
+[Visit our site](https://kevins-trove.github.io/TroveEmployeeManager/)
 
 [See our repository](https://github.com/Kevins-Trove/TroveEmployeeManager)
 
