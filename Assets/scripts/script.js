@@ -1,51 +1,86 @@
-// let employeesArray = [];
+// Employee storage array
+let employeesArray = [];
 
 // Get a reference to the #add-employees-btn element
 const addEmployeesBtn = document.querySelector('#add-employees-btn');
 
 // Collect employee data
 const collectEmployees = function() {
- 
-  let flag = false;
-  let result = new Map();
-  result.set("lastName", "")
-  result.set("firstName", "")
-  result.set("salary", 0)
-  let lastName = "", firstName = "", salary = 0;
-
-  // Get user last name and prompt for 
-  //while (result.lastName.length == 0){
-    result.lastName = prompt("Last name", "");
-    
-  //}
+  var result;
   
-  //while (firstName.length == 0){
-    result.firstName = prompt("First name", "");
-  //}
+  const employee ={
+    firstName: "",
+    lastName: "",
+    salary: 0
+  }
+   
+  // Get user last name, force input of string
+  while (employee.lastName.length == 0){
+      result =  prompt("Last name", "");
+      if (result != null) {
+        employee.lastName = result.toLowerCase().charAt(0).toUpperCase() + result.slice(1);
+      } else {
+        confirm("You must enter a string value");
+      }
+   }
 
-  //while (salary <= 0){
-    result.salary = prompt("Employee salary", "");
-  //}
+   // Get user first name, force input of string
+  while (employee.firstName.length == 0){
+      result =  prompt("First name", "");
+      if (result != null ) {
+        employee.firstName = result.toLowerCase().charAt(0).toUpperCase() + result.slice(1);
+        
+      } else {
+        confirm("You must enter a string value");
+      }
+  }
 
-  return result;
+  // Get salary, force to value greater than zero.
+  while (employee.salary <= 0){
+      result =  prompt("Employee salary", "");
+      if (result != null && !isNaN(result) && result > 0) {
+        employee.salary = new Number(result);
+      } else {
+        confirm("You must enter a value greater than zero.");
+      }
+  }
+
+  // Add to array and sort by last name
+  employeesArray.push (employee);
+
+  employeesArray.sort(
+    function(a, b){
+      return a.lastName-b.lastName;
+    }
+  );
+
+  return employeesArray;
+  
 }
 
 // Display the average salary
 const displayAverageSalary = function(employeesArray) {
-  // TODO: Calculate and display the average salary
-  let total = 0;
-  employeesArray.array.forEach(element => {
-    total += element.salary;
-  });
+    let total = 0;
+    let average = 0;
 
-  return total / employeesArray.length;
+    for(let i = 0; i <employeesArray.length; i++){
+      total += employeesArray[i].salary;
+    }
 
-
+    average = total / employeesArray.length;
+  
+    alert("Averge employee salary is " + average.toLocaleString("en-US",{
+      style:"currency",
+      currency:"USD"
+    }));
+  
 }
 
 // Select a random employee
 const getRandomEmployee = function(employeesArray) {
-  // TODO: Select and display a random employee
+    const rnd = Math.floor(Math.random() * (employeesArray.length -1));
+
+    alert("Random employee of today is: " + employeesArray[rnd].lastName + ",  " + employeesArray[rnd].firstName);
 }
 
 /*
