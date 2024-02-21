@@ -7,47 +7,59 @@ const addEmployeesBtn = document.querySelector('#add-employees-btn');
 // Collect employee data
 const collectEmployees = function() {
   var result;
-  
-  const employee ={
+  var max = 3;
+  var msgPrompt;
+
+  var employee ={
     firstName: "",
     lastName: "",
     salary: 0
   }
-   
-  // Get user last name, force input of string
-  while (employee.lastName.length == 0){
-      result =  prompt("Last name", "");
-      if (result != null) {
-        employee.lastName = result.toLowerCase().charAt(0).toUpperCase() + result.slice(1);
-      } else {
-        confirm("You must enter a string value");
-      }
-   }
+  
+  for (var i=0; i < max; i++){
+    msgPrompt = `Employee #${i+1} `;
+    
+    employee = {
+      firstName: "",
+      lastName: "",
+      salary: 0
+    }
+    // Get user last name, force input of string
+    while (employee.lastName.length == 0){
+        result =  prompt(msgPrompt + "Last name", "");
+        if (result != null) {
+          employee.lastName = result.toLowerCase().charAt(0).toUpperCase() + result.slice(1);
+        } else {
+          confirm("You must enter a string value");
+        }
+    }
 
-   // Get user first name, force input of string
-  while (employee.firstName.length == 0){
-      result =  prompt("First name", "");
-      if (result != null ) {
-        employee.firstName = result.toLowerCase().charAt(0).toUpperCase() + result.slice(1);
-        
-      } else {
-        confirm("You must enter a string value");
-      }
+    // Get user first name, force input of string
+    while (employee.firstName.length == 0){
+        result =  prompt(msgPrompt + "First name", "");
+        if (result != null ) {
+          employee.firstName = result.toLowerCase().charAt(0).toUpperCase() + result.slice(1);
+          
+        } else {
+          confirm("You must enter a string value");
+        }
+    }
+
+    // Get salary, force to value greater than zero.
+    while (employee.salary <= 0){
+        result =  prompt(msgPrompt + "Employee salary", "");
+        if (result != null && !isNaN(result) && result > 0) {
+          employee.salary = new Number(result);
+        } else {
+          confirm("You must enter a value greater than zero.");
+        }
+    }
+
+    // Add to array 
+    employeesArray.push (employee);
   }
 
-  // Get salary, force to value greater than zero.
-  while (employee.salary <= 0){
-      result =  prompt("Employee salary", "");
-      if (result != null && !isNaN(result) && result > 0) {
-        employee.salary = new Number(result);
-      } else {
-        confirm("You must enter a value greater than zero.");
-      }
-  }
-
-  // Add to array and sort by last name
-  employeesArray.push (employee);
-
+    // Sort by last name
   employeesArray.sort(
     function(a, b){
       return a.lastName-b.lastName;
