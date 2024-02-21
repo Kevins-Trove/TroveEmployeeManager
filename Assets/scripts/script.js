@@ -5,7 +5,7 @@ const addEmployeesBtn = document.querySelector('#add-employees-btn');
 
 // Collect employee data
 const collectEmployees = function() {
- /*
+ 
   
   let result = new Map();
   result.set("lastName", "")
@@ -14,22 +14,24 @@ const collectEmployees = function() {
   let lastName = "", firstName = "", salary = 0;
 
   // Get user last name and prompt for 
-  //while (result.lastName.length == 0){
+ while (result.lastName.length() == 0){
     result.lastName = prompt("Last name", "");
     
-  //}
+  }
   
-  //while (firstName.length == 0){
+  while (firstName.length() == 0){
     result.firstName = prompt("First name", "");
-  //}
+  }
 
-  //while (salary <= 0){
+  while (salary <= 0){
     result.salary = prompt("Employee salary", "");
-  //}
+  }
 
   return result;
-  */
+ 
   let item = new Map();
+  let item2 = new Map();
+  let item3 = new Map();
   let array = [];
   
   item.set("lastName", "Roper");
@@ -37,16 +39,16 @@ const collectEmployees = function() {
   item.set("salary", 100000);
   array.push(item);
 
-  item.lastName = "Smith";
-  item.firstName = "Jane";
-  item.salary = 80000;
-  array.push(item);
+  item2.lastName = "Smith";
+  item2.firstName = "Jane";
+  item2.salary = 80000;
+  array.push(item2);
 
-  item.lastName = "Relic";
-  item.firstName = "The";
-  item.salary = 75000;
-  array.push(item);
-
+  item3.lastName = "Relic";
+  item3.firstName = "The";
+  item3.salary = 75000;
+  array.push(item3);
+console.log(array);
   return array;
 }
 
@@ -59,6 +61,7 @@ const displayAverageSalary = function(employeesArray) {
     total += employeesArray[i].salary;
   }
 
+  alert("Averge salary")
   return total / employeesArray.length;
 
 
