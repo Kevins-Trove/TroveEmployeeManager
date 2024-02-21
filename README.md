@@ -8,7 +8,7 @@ The is a project to demonstrate the Trove interface for Employee Payroll Managem
 - Clean code.
 
 ## New look of Trove Employee data tracking
-![Screenshot of Troves creative payroll management interface]( /assets/images/screenshot-trove.png?raw=true "TrovePayrollManager")
+![Screenshot of Troves creative payroll management interface]( /assets-trove/images/screenshot-trove.png?raw=true "TrovePayrollManager")
 
 
 ## Our work
